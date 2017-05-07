@@ -1,0 +1,159 @@
+//====================
+// variables
+//====================
+
+$color-brand: #7ED321
+$color-brand-dark: #72C21B
+$color-white: #FFF
+$color-primary: #F6F6F6
+$color-primary-dark: #B4B4B4
+$color-secondary: #DDD
+$color-primary-text: #4A4A4A
+
+
+
+//====================
+// base
+//====================
+
+html
+    min-width: 1024px
+ 
+
+body
+    position: relative
+    margin: 0
+    font:
+        family: 'Helvetica', sans-serif
+        size: 16px
+        weight: 300
+    background-color: $color-primary
+        
+        
+a
+    text-decoration: none
+    color: inherit
+
+
+
+//====================
+// typography
+//====================
+
+h1,
+.h1
+    margin: 0
+    font-size: 40px
+    font-weight: 500
+    line-height: 1.3
+
+h2,
+.h2
+    margin-top: 0
+    font-size: 30px
+    font-weight: 300
+
+
+
+//====================
+// components
+//====================
+
+.nav
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    margin-left: auto
+    color: $color-primary-text
+
+    &__item
+        margin-left: 20px
+        font-size: 13px
+        font-weight: 400
+        text-transform: uppercase
+
+
+.brand-logo
+    display: inline-block
+    height: 55px
+    line-height: 55px
+    color: $color-brand
+    font-family: 'Avenir', sans-serif
+    font-size: 1.3rem
+    font-weight: 900
+    letter-spacing: 0.1em
+    text-transform: uppercase
+
+
+.tagline
+    margin-bottom: 40px
+    text-align: center
+
+
+.button
+    display: inline-block
+    height: 32px
+    padding: 0 15px 0
+    border: 0
+    border-radius: 4px
+    font:
+        family: 'Helvetica', sans-serif
+        size: 12px
+        weight: 400
+    line-height: 32px
+    text-transform: uppercase
+    cursor: pointer
+    transition: all 0.2s
+    
+    &--primary
+        background-color: $color-brand
+        color: $color-white 
+        
+        &:hover
+            background-color: $color-brand-dark
+
+
+
+//====================
+// layouts
+//====================
+
+.header
+    background-color: $color-white
+    color: $color-primary-text
+    
+    &__inner
+        display: flex
+        align-items: center
+        width: 940px
+        margin: 0 auto
+    
+.main
+    min-height: calc(100vh - 295px)
+    padding-top: 90px
+    padding-bottom: 90px
+    background-color: $color-primary
+    
+    &--alt
+        background: linear-gradient(0deg, $color-brand, rgba($color-brand,0.5))
+
+    &__inner
+        width: 720px
+        margin: 0 auto
+
+
+.footer
+    height: 60px
+    line-height: 60px
+    background-color: $color-primary
+    font-size: 13px
+    font-weight: 400
+    color: $color-primary-text
+    text-align: center
+
+    &__inner
+        box-sizing: border-box
+        width: 720px
+        margin: 0 auto
+        border-top: 1px solid $color-secondary
+        text-transform: uppercase
