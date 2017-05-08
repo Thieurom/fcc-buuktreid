@@ -1,17 +1,4 @@
-<header class="header">
-  <div class="header__inner">
-    <a class="brand-logo" href="/">Buuktreid</a>
-    <nav class="nav">
-      <div class="nav__item">
-        <%= link_to "Log in", '#' %>
-      </div>
-      <div class="nav__item">
-        <%= link_to "Sign up", '#', class: "button button--primary" %>
-      </div>
-    </nav>
-  </div>
-</header>
-
+<%= render 'shared/header' %>
 <main class="main">
   <div class="main__inner">
     <div class="tagline">
@@ -20,7 +7,4 @@
     </div>
   </div>
 </main>
-
-<footer class="footer">
-  <div class="footer__inner">2017. Buuktreid.</div>
-</footer>
+<%= render 'shared/footer' %>
