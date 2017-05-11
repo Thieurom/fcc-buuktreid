@@ -1,0 +1,7 @@
+<% if @user.errors.any? %>
+  <div class="error-alert">
+    <p class="alert">
+      <%= @user.errors.full_messages[0] %>
+    </p>
+  </div>
+<% end %>

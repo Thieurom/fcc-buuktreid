@@ -1,9 +1,27 @@
 <%= provide(:title, "Sign up for Buuktreid") %>
-<%= render 'shared/header' %>
-<main class="main">
+<main class="main main--alt">
   <div class="main__inner">
-    <h1>Sign up</h1>
-    <h2>Create an account</h2>
+    <a class="brand-logo brand-logo--alt-big", href="<%= root_path %>">Buuktreid</a>
+    <div class="panel">
+      <div class="panel__head">
+        <h3 class="h3">Create a new account</h3>
+      </div>
+      <%= form_for(@user, url: signup_path, html: {class: 'entry-form'}) do |f| %>
+        <%= render 'shared/error_messages' %>
+        <div class="entry-form__group">
+          <%= f.text_field :username, class: 'entry-form__input', placeholder: 'Username' %>
+        </div>
+        <div class="entry-form__group">
+          <%= f.email_field :email, class: 'entry-form__input', placeholder: 'Email address' %>
+        </div>
+        <div class="entry-form__group">
+          <%= f.password_field :password, class: 'entry-form__input', placeholder: 'Password' %>
+        </div>
+        <div class="panel__note">*All fields are required.</div>
+        <%= f.submit 'Sign up', class: 'entry-form__submit button button--primary button--full' %>
+      <% end %>
+      <div class="panel__foot">Already have an account? <%= link_to 'Login', '#', class: 'link' %></div>
+    </div>
   </div>
 </main>
-<%= render 'shared/footer' %>
+<%= render 'shared/alt_footer' %>

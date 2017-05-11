@@ -9,6 +9,7 @@ $color-primary: #F6F6F6
 $color-primary-dark: #B4B4B4
 $color-secondary: #DDD
 $color-primary-text: #4A4A4A
+$color-red: #D0011B
 
 
 
@@ -35,6 +36,30 @@ a
     color: inherit
 
 
+input[type='text'],
+input[type='email'],
+input[type='password']
+    padding: 0
+    color: $color-primary-text
+    font-family: 'Roboto', 'Helvetica', sans-serif
+
+    &:focus
+        outline: 0
+
+
+*::-webkit-input-placeholder
+    color: $color-primary-dark
+
+*:-moz-placeholder
+    color: $color-primary-dark
+
+*::-moz-placeholder
+    color: $color-primary-dark
+
+*:-ms-input-placeholder
+    color: $color-primary-dark
+
+
 
 //====================
 // typography
@@ -54,6 +79,14 @@ h2,
     font-weight: 300
 
 
+h3,
+.h3
+    margin-top: 0
+    margin-bottom: 20px
+    font-size: 24px
+    font-weight: 400
+
+
 
 //====================
 // components
@@ -68,7 +101,7 @@ h2,
 
     &__item
         margin-left: 20px
-        font-size: 13px
+        font-size: 12px
         font-weight: 400
         text-transform: uppercase
 
@@ -83,6 +116,10 @@ h2,
     font-weight: 900
     letter-spacing: 0.1em
     text-transform: uppercase
+
+    &--alt-big
+        font-size: 2rem
+        color: $color-white
 
 
 .tagline
@@ -112,6 +149,94 @@ h2,
         &:hover
             background-color: $color-brand-dark
 
+    &--full
+        width: 100%
+        height: 40px
+        padding: 0 40px 0
+
+.user
+    display: flex
+    align-items: center
+    justify-content: center
+    padding-top: 90px
+    padding-bottom: 40px
+    background-color: $color-white
+    
+    &__avatar
+        flex: 80px 0 0
+        height: 80px
+        margin-right: 40px
+        border-radius: 100%
+        background-color: $color-brand
+
+    &__detail
+        display: flex
+        flex-direction: column
+        line-height: 30px
+        
+    &__name
+        font-size: 24px
+        font-weight: 400
+
+
+.link
+    font-weight: 400
+    color: $color-brand
+
+
+.entry-form
+    &__group
+        position: relative
+        margin-bottom: 20px
+        
+    &__input
+        box-sizing: border-box
+        width: 100%
+        height: 40px
+        border: 1px solid $color-secondary
+        border-radius: 4px
+        text-indent: 20px
+        font-size: 14px
+
+        &:focus
+            border-color: $color-brand
+
+
+.alert
+    font-size: 14px
+    font-weight: 400
+    color: $color-red
+
+
+
+//====================
+// containers
+//====================
+
+.panel
+    box-sizing: border-box
+    width: 400px
+    margin: 40px auto 0
+    padding: 60px 40px 40px
+    background-color: $color-white
+    color: $color-primary-text
+    
+    &__head
+        margin-bottom: 40px
+        text-align: center
+        color: $color-brand
+        
+    &__foot
+        padding-top: 20px
+        text-align: left
+        font-size: 14px
+
+    &__note
+        margin-bottom: 5px
+        font-size: 13px
+        text-align: left
+        color: $color-primary-dark
+
 
 
 //====================
@@ -135,6 +260,8 @@ h2,
     background-color: $color-primary
     
     &--alt
+        min-height: calc(100vh - 240px)
+        text-align: center
         background: linear-gradient(0deg, $color-brand, rgba($color-brand,0.5))
 
     &__inner
@@ -146,10 +273,14 @@ h2,
     height: 60px
     line-height: 60px
     background-color: $color-primary
-    font-size: 13px
+    font-size: 12px
     font-weight: 400
     color: $color-primary-text
     text-align: center
+
+    &--alt
+        background-color: $color-brand
+        color: $color-primary
 
     &__inner
         box-sizing: border-box
