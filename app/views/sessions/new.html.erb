@@ -1,0 +1,29 @@
+<%= provide(:title, "Log in to Buuktreid") %>
+<main class="main main--alt">
+  <div class="main__inner">
+    <a class="brand-logo brand-logo--alt-big", href="<%= root_path %>">Buuktreid</a>
+    <div class="panel">
+      <div class="panel__head">
+        <h3 class="h3">Log in to your account</h3>
+      </div>
+      <%= form_for(:session, url: login_path, html: {class: 'entry-form'}) do |f| %>
+        <% unless flash.empty? %>
+          <div class="error-alert">
+            <p class="alert">
+            <%= flash[:error] %>
+            </p>
+          </div>
+        <% end %> 
+        <div class="entry-form__group">
+          <%= f.text_field :username, class: 'entry-form__input', placeholder: 'Username' %>
+        </div>
+        <div class="entry-form__group">
+          <%= f.password_field :password, class: 'entry-form__input', placeholder: 'Password' %>
+        </div>
+        <%= f.submit 'Log in', class: 'entry-form__submit button button--primary button--full' %>
+      <% end %>
+      <div class="panel__foot">Don't have an account? <%= link_to 'Sign up', signup_path, class: 'link' %></div>
+    </div>
+  </div>
+</main>
+<%= render 'shared/alt_footer' %>

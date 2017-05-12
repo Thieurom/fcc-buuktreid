@@ -8,5 +8,19 @@
 </div>
 <main class="main">
   <div class="main__inner">
+    <div class="dashboard">
+      <div class="sidebar">
+        <ul class="menu">
+          <li class="menu__item">
+            <%= link_to 'Collection', current_user, class: 'menu__link menu__link--active' %>
+          </li>
+          <li class="menu__item">
+            <%= link_to 'Logout', logout_path, method: :delete, class: 'menu__link' %>
+          </li>
+        </ul>
+      </div>
+      <div class="detail">
+      </div>
+    </div>
   </div>
 </main>

@@ -2,12 +2,18 @@
   <div class="header__inner">
     <a class="brand-logo" href="/">Buuktreid</a>
     <nav class="nav">
-      <div class="nav__item">
-        <%= link_to "Log in", '#' %>
-      </div>
-      <div class="nav__item">
-        <%= link_to "Sign up", signup_path, class: "button button--primary" %>
-      </div>
+      <% if logged_in? %>
+        <div class="nav__item">
+          <%= link_to 'Account', current_user %>
+        </div>
+      <% else %>
+        <div class="nav__item">
+          <%= link_to "Log in", login_path %>
+        </div>
+        <div class="nav__item">
+          <%= link_to "Sign up", signup_path, class: "button button--primary" %>
+        </div>
+      <% end %>
     </nav>
   </div>
 </header>
