@@ -208,7 +208,38 @@ h3,
             border-color: $color-brand
 
 
+.profile-form
+    &__group
+        display: flex
+        align-items: center 
+        margin-bottom: 30px
+    
+    &__name
+        flex: 0 0 120px
+
+    &__value
+        flex-grow: 1
+
+    &__label
+        font-weight: 400
+        
+    &__input
+        height: 30px
+        width: 100%
+        padding: 0
+        border: 1px solid $color-secondary
+        border-radius: 4px
+        text-indent: 10px
+        font:
+            size: 16px
+            weight: 400
+
+        &:focus
+            border-color: $color-brand
+
+
 .alert
+    text-align: center
     font-size: 14px
     font-weight: 400
     color: $color-red
@@ -276,6 +307,11 @@ h3,
 .detail
     flex-basis: percentage(2/3)
 
+
+.board
+    padding: 60px 40px 40px
+    border: 1px solid $color-secondary
+    background-color: $color-white
 
 
 //====================

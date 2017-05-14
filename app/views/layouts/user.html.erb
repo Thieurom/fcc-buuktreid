@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= page_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'shared/header' %>
+
+    <div class="user">
+      <div class="user__avatar"></div>
+      <div class="user__detail">
+        <div class="user__name"><%= @user.username %></div>
+        <div class="user__email"><%= @user.email %></div>
+      </div>
+    </div>
+
+    <main class="main">
+      <div class="main__inner">
+        <div class="dashboard">
+          <div class="sidebar">
+            <%= yield :sidebar %>
+          </div>
+          <div class="detail">
+            <%= yield :detail %>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

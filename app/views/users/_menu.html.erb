@@ -1,0 +1,19 @@
+<ul class="menu">
+  <li class="menu__item">
+    <% if active_menu_link == "Collection" %>
+      <%= link_to 'Collection', @user, class: 'menu__link menu__link--active' %>
+    <% else %>
+      <%= link_to 'Collection', @user, class: 'menu__link' %>
+    <% end %>
+  </li>
+  <li class="menu__item">
+    <% if active_menu_link == "Edit Profile" %>
+      <%= link_to 'Edit Profile', edit_profile_user_path(@user), class: 'menu__link menu__link--active' %>
+    <% else %>
+      <%= link_to 'Edit Profile', edit_profile_user_path(@user), class: 'menu__link' %>
+    <% end %>
+  </li>
+  <li class="menu__item">
+    <%= link_to 'Logout', logout_path, method: :delete, class: 'menu__link' %>
+  </li>
+</ul>

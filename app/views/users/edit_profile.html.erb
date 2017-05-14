@@ -1,0 +1,6 @@
+<% content_for :sidebar do %>
+  <%= render partial: 'menu', locals: { active_menu_link: 'Edit Profile' } %>
+<% end %>
+<% content_for :detail do %>
+  <%= render 'edit_profile_form' %>
+<% end %>

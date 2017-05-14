@@ -1,0 +1,28 @@
+<div class="board">
+  <%= form_for(@user, html: { class: 'profile-form' }) do |f| %>
+    <div class="profile-form__group">
+      <div class="profile-form__name">
+      <%= f.label :username, class: 'profile-form__label' %>
+      </div>
+      <div class="profile-form__value">
+        <%= f.text_field :username, class: 'profile-form__input' %>
+      </div>
+    </div>
+    <div class="profile-form__group">
+      <div class="profile-form__name">
+      <%= f.label :email, class: 'profile-form__label' %>
+      </div>
+      <div class="profile-form__value">
+        <%= f.text_field :email, class: 'profile-form__input' %>
+      </div>
+    </div>
+    <div class="profile-form__group">
+      <div class="profile-form__name">
+      </div>
+      <div class="profile-form__value">
+        <%= f.submit 'Save changes', class: 'button button--primary' %>
+      </div>
+    </div>
+    <%= render 'shared/error_messages' %>
+  <% end %>
+</div>
