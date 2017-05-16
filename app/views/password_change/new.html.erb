@@ -1,0 +1,6 @@
+<% content_for :sidebar do %>
+  <%= render partial: 'users/menu', locals: { active_menu_link: 'Change Password' } %>
+<% end %>
+<% content_for :detail do %>
+  <%= render 'change_password_form' %>
+<% end %>

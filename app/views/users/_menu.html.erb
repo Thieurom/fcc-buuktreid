@@ -14,6 +14,13 @@
     <% end %>
   </li>
   <li class="menu__item">
+    <% if active_menu_link == "Change Password" %>
+      <%= link_to 'Change Password', change_password_user_path(@user), class: 'menu__link menu__link--active' %>
+    <% else %>
+      <%= link_to 'Change Password', change_password_user_path(@user), class: 'menu__link' %>
+    <% end %>
+  </li>
+  <li class="menu__item">
     <%= link_to 'Logout', logout_path, method: :delete, class: 'menu__link' %>
   </li>
 </ul>

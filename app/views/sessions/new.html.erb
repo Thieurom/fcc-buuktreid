@@ -7,13 +7,7 @@
         <h3 class="h3">Log in to your account</h3>
       </div>
       <%= form_for(:session, url: login_path, html: {class: 'entry-form'}) do |f| %>
-        <% unless flash.empty? %>
-          <div class="error-alert">
-            <p class="alert">
-            <%= flash[:error] %>
-            </p>
-          </div>
-        <% end %> 
+        <%= render 'shared/flash_messages' %>
         <div class="entry-form__group">
           <%= f.text_field :username, class: 'entry-form__input', placeholder: 'Username' %>
         </div>

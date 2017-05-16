@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     member do
       get 'edit-profile'
       patch 'edit-profile', to: 'users#update'
+      get 'change-password', to: 'password_change#new'
+      post 'change-password', to: 'password_change#create'
     end
   end
 end
