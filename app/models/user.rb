@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :books
   before_save { email.downcase! }
   VALID_USERNAMES = /\A\w+\z/
   validates :username, presence: true, length: { maximum: 30 },

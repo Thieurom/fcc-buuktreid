@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: "Steve Jobs"
+  author: "Walter Issacson"
+  updated_at: <%= 10.minutes.ago %>
+
+two:
+  title: "The Second Coming of Steve Jobs"
+  author: "Alan Deutschman"
+  updated_at: <%= 2.hours.ago %>
+
+most_recent_updated:
+  title: "Steve Jobs - Apple & iPod Wizard"
+  author: "Scott Gillam"
+  updated_at: <%= Time.zone.now %>

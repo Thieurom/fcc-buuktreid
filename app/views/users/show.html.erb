@@ -1,6 +1,11 @@
+<% provide(:title, @user.username + " | Buuktreid") %>
 <% content_for :sidebar do %>
   <%= render partial: 'menu', locals: { active_menu_link: 'Collection' } %>
 <% end %>
 <% content_for :detail do %>
-  <h3>All books.</h3>
+  <% if @user.books.any? %>
+    <ol class="list">
+      <%= render @books %>
+    </ol>
+  <% end %>
 <% end %>
