@@ -1,0 +1,14 @@
+<%= render 'shared/header' %>
+<main class="main">
+  <div class="main__inner">
+    <div class="search-box">
+      <div class="search-box__title">Add books to your collection then trade them later.</div>
+      <%= form_tag(new_book_path, method: :get, remote: true, enforce_utf8: false, class: 'search-form') do %>
+        <%= label_tag 'search', '<i class="fa fa-search"></i>'.html_safe, class: 'search-form__label' %>
+        <%= text_field_tag 'q', params[:q], autofocus: true, class: 'search-form__input' %>
+      <% end %>
+    </div>
+    <ul class="list"></ul>
+  </div>
+</main>
+<%= render 'shared/footer' %>

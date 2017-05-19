@@ -13,4 +13,5 @@ Rails.application.routes.draw do
       post 'change-password', to: 'password_change#create'
     end
   end
+  resources :books, only: [:new, :create, :update, :destroy], path_names: { new: 'search' }
 end

@@ -4,6 +4,7 @@
     <title><%= page_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
+    <link rel="stylesheet" media="all" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -16,6 +17,11 @@
       <div class="user__detail">
         <div class="user__name"><%= @user.username %></div>
         <div class="user__email"><%= @user.email %></div>
+        <div class="user__books">
+          <div class="user__book-count"><%= pluralize(@user.books.count, "book") %></div>
+          <%= link_to 'Add books', new_book_path, class: 'button button--small button--secondary' %>
+        </div>
+      </div>
       </div>
     </div>
 

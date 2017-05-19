@@ -52,6 +52,10 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     erubis (2.7.0)
     execjs (2.7.0)
     faker (1.7.3)
@@ -59,6 +63,8 @@ GEM
     ffi (1.9.18)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    httparty (0.15.4)
+      multi_xml (>= 0.5.2)
     i18n (0.8.1)
     jbuilder (2.6.3)
       activesupport (>= 3.0.0, < 5.2)
@@ -86,6 +92,7 @@ GEM
       minitest (>= 5.0)
       ruby-progressbar
     multi_json (1.12.1)
+    multi_xml (0.6.0)
     nio4r (2.0.0)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
@@ -171,7 +178,9 @@ DEPENDENCIES
   bcrypt (~> 3.1.11)
   byebug
   coffee-rails (~> 4.2)
+  dotenv-rails (~> 2.2.1)
   faker (~> 1.7.3)
+  httparty (~> 0.15.4)
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
