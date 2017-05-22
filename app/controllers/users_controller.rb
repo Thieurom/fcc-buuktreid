@@ -41,20 +41,4 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username, :email, :password)
     end
-
-    # Before filters
-
-    # Confirm a logged-in user.
-    def logged_in_user
-      unless logged_in?
-        store_location
-        redirect_to login_url
-      end
-    end
-
-    # Confirm the correct user.
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_url) unless correct_user?(@user)
-    end
 end

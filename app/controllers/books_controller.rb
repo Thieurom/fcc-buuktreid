@@ -14,7 +14,24 @@ class BooksController < ApplicationController
     end
   end
 
+  def create
+    @book = current_user.books.build(book_params)
+    respond_to do |format|
+      if @book.save
+        format.html { redirect_to root_url }
+        format.js { head :created }
+      else
+        format.html { redirect_to root_url }
+        format.js { head :internal_server_error }
+      end
+    end
+  end
+
   private
+
+    def book_params
+      params.require(:book).permit(:title, :author, :description, :cover_image_link)
+    end
 
     def search(term)
       query_url = GOOGLE_BOOKS_API_BASE_URL + "volumes?q=#{term}&maxResults=40&key=#{GOOGLE_BOOKS_API_KEY}"
@@ -31,7 +48,7 @@ class BooksController < ApplicationController
 
           title = volume_info['title']
           author = volume_info['authors'] ? volume_info['authors'].join(', ') : "No information"
-          description = volume_info['description'] ? volume_info['description'] : "No information"
+          description = volume_info['description'] ? volume_info['description'] : ""
           cover_image_link = volume_info['imageLinks'] ? volume_info['imageLinks']['thumbnail'] : ""
 
           {'title' => title,
@@ -40,16 +57,6 @@ class BooksController < ApplicationController
            'cover_image_link' => cover_image_link}
         end
       else
-      end
-    end
-
-    # Before filters
-
-    # Confirm a logged-in user.
-    def logged_in_user
-      unless logged_in?
-        store_location
-        redirect_to login_url
       end
     end
 end

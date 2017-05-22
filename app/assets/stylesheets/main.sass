@@ -182,6 +182,16 @@ h3,
         line-height: 24px
         font-size: 11px
 
+    &--disabled
+        border-color: $color-secondary
+        color: $color-secondary
+        cursor: auto
+
+        &:hover
+            border-color: $color-secondary
+            color: $color-secondary
+            
+
 
 .user
     display: flex
@@ -224,14 +234,13 @@ h3,
 
 .search-book
     display: flex
-    align-items: center
-    padding: 10px 30px 10px 20px
+    padding: 10px 20px
     border: 1px solid $color-secondary
     background-color: $color-white
     
     &__cover
-        flex: 40px 0 0
-        height: 60px
+        flex: 50px 0 0
+        height: 75px
         margin-right: 20px
         background-color: $color-brand
         background-size: cover
@@ -239,7 +248,9 @@ h3,
         background-repeat: no-repeat
 
     &__info
-        height: 60px
+        display: flex
+        flex-direction: column
+        height: 75px
         
     &__title
         max-height: 1.4em
@@ -250,8 +261,25 @@ h3,
     &__author
         max-height: 1.4em
         font-size: 13px
+        font-weight: 400
         color: $color-primary-dark
         overflow: hidden
+
+    &__description
+        max-height: 1.4em
+        margin-top: auto
+        font-size: 13px
+        text-overflow: ellipsis
+        overflow: hidden
+
+    &__action
+        flex-shrink: 0
+        display: none
+        margin-left: auto
+        margin-top: 10px
+
+        .search-book:hover &
+            display: block
 
 
 .link
@@ -349,6 +377,9 @@ h3,
         height: 100px
         margin-right: 20px
         background-color: $color-brand
+        background-size: cover
+        background-position: center top
+        background-repeat: no-repeat
 
     &__sub-info
         display: flex
@@ -367,6 +398,7 @@ h3,
     &__author
         max-height: 1.4em
         font-size: 13px
+        font-weight: 400
         overflow: hidden
         color: $color-primary-dark
 
