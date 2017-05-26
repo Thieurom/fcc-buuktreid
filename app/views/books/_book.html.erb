@@ -1,13 +1,21 @@
 <li class="list__item">
-  <div class="book">
+  <div class="book" data-book-id=<%= book.id %>>
     <div class="book__title"><%= book.title %></div>
     <div class="book__author"><%= book.author %></div>
     <div class="book__sub-info">
-      <div class="book__cover" style=<%= "background-image:url(" + book.cover_image_link + ")" %>></div>
+      <% if book.cover_image_link.empty? %>
+        <div class="book__cover" style="background-color:#7ED321" ></div>
+      <% else %>
+        <div class="book__cover" style=<%= "background-image:url(" + book.cover_image_link + ")" %>></div>
+      <% end %>
       <div class="book__extra-info">
         <div class="book__description"><%= book.description %></div>
         <div class="book__action">
-          <button class="button button--small button--secondary">trade</button>
+          <% if book.trading %>
+            <button class="button button--small button--destroy">cancel</button>
+          <% else %>
+            <button class="button button--small button--secondary">trade</button>
+          <% end %>
         </div>
       </div>
     </div>

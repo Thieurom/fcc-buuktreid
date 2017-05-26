@@ -7,6 +7,13 @@
     <% end %>
   </li>
   <li class="menu__item">
+    <% if active_menu_link == "Trading" %>
+      <%= link_to 'Trading', trading_user_path(@user), class: 'menu__link menu__link--active' %>
+    <% else %>
+      <%= link_to 'Trading', trading_user_path(@user), class: 'menu__link' %>
+    <% end %>
+  </li>
+  <li class="menu__item">
     <% if active_menu_link == "Edit Profile" %>
       <%= link_to 'Edit Profile', edit_profile_user_path(@user), class: 'menu__link menu__link--active' %>
     <% else %>

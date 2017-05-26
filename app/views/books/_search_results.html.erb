@@ -2,7 +2,11 @@
   <% @search_results.each do |result| %>
     <li class="list__item">
       <div class="search-book">
-        <div class="search-book__cover" style=<%= "background-image:url(" + result['cover_image_link'] + ")" %>></div>
+        <% if result['cover_image_link'].empty? %>
+          <div class="search-book__cover" style="background-color:#7ED321" ></div>
+        <% else %>
+          <div class="search-book__cover" style=<%= "background-image:url(" + result['cover_image_link'] + ")" %>></div>
+        <% end %>
         <div class="search-book__info">
           <div class="search-book__title"><%= result['title'] %></div>
           <div class="search-book__author"><%= result['author'] %></div>

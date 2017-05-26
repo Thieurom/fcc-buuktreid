@@ -27,6 +27,24 @@ class BooksController < ApplicationController
     end
   end
 
+  def open_trading
+    @book = Book.find_by(id: params[:id])
+    @book.update_attribute(:trading, true)
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.js { head :no_content }
+    end
+  end
+
+  def cancel_trading
+    @book = Book.find_by(id: params[:id])
+    @book.update_attribute(:trading, false)
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.js { head :no_content }
+    end
+  end
+
   private
 
     def book_params

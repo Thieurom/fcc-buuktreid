@@ -5,7 +5,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @books = @user.books
+    @books = @user.books.where(trading: false)
+  end
+
+  def show_trade
+    @user = User.find(params[:id])
+    @books = @user.books.where(trading: true)
   end
 
   def new

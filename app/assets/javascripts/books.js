@@ -15,8 +15,12 @@ $(document).on('turbolinks:load', function() {
       var title = searchBook.find('.search-book__title').text();
       var author = searchBook.find('.search-book__author').text();
       var description = searchBook.find('.search-book__description').text();
-      var bgCSSLink = searchBook.find('.search-book__cover').css('background-image');
-      var cover_image_link = bgCSSLink.substring(bgCSSLink.indexOf('(') + 2, bgCSSLink.indexOf(')') - 1);
+      var cover = searchBook.find('.search-book__cover');
+      var cover_image_link = '';
+      if (cover.prop('style')['background-image']) {
+        var bgCSSLink = cover.css('background-image');
+        cover_image_link = bgCSSLink.substring(bgCSSLink.indexOf('(') + 2, bgCSSLink.indexOf(')') - 1);
+      }
 
       // post to create new book
       $.ajax({
