@@ -36,6 +36,6 @@ class UsersChangePasswordTest < ActionDispatch::IntegrationTest
                                                            password: new_password} }
     assert_redirected_to login_url
     post login_path, params: { session: { username: @user.username, password: new_password} }
-    assert_redirected_to @user
+    assert_redirected_to root_url
   end
 end

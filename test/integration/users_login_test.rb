@@ -18,12 +18,12 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     get login_url
     assert_template 'sessions/new'
     post login_path, params: { session: { username: @user.username, password: "password" } }
-    assert_redirected_to @user
+    assert_redirected_to root_url
     follow_redirect!
-    assert_template 'users/show'
+    assert_template 'home/index'
     assert_select "a[href=?]", login_path, count: 0
-    assert_select "a[href=?]", logout_path
-    assert_select "a[href=?]", user_path(@user), count: 2
+    assert_select "a[href=?]", signup_path, count: 0
+    assert_select "a[href=?]", user_path(@user)
   end
 
   test "login with valid information followed by logout" do
@@ -31,12 +31,13 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_template 'sessions/new'
     post login_path, params: { session: { username: @user.username, password: "password" } }
     assert is_logged_in?
-    assert_redirected_to @user
+    assert_redirected_to root_url
     follow_redirect!
-    assert_template 'users/show'
+    assert_template 'home/index'
     assert_select "a[href=?]", login_path, count: 0
-    assert_select "a[href=?]", logout_path
-    assert_select "a[href=?]", user_path(@user), count: 2
+    assert_select "a[href=?]", signup_path, count: 0
+    assert_select "a[href=?]", user_path(@user)
+    get user_path(@user)
     delete logout_path
     assert_not is_logged_in?
     assert_redirected_to root_url

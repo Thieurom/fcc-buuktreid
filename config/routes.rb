@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     member do
       patch 'trade/open', to: 'books#open_trading'
       patch 'trade/cancel', to: 'books#cancel_trading'
+      patch 'trade/accept', to: 'books#accept_trading'
     end
   end
 end

@@ -1,10 +1,14 @@
 <%= render 'shared/header' %>
 <main class="main">
   <div class="main__inner">
-    <div class="tagline">
-      <h1 class="h1">Buuktreid</h1>
-      <h2 class="h2">A friendly marketplace for book lovers.</h1>
-    </div>
+    <% if logged_in? %>
+      <%= render 'trading_books' %>
+    <% else %>
+      <div class="tagline">
+        <h1 class="h1">Buuktreid</h1>
+        <h2 class="h2">A friendly marketplace for book lovers.</h1>
+      </div>
+    <% end %>
   </div>
 </main>
 <%= render 'shared/footer' %>

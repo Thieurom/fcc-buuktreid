@@ -3,6 +3,7 @@ require 'test_helper'
 class BooksControllerTest < ActionDispatch::IntegrationTest
 
   def setup
+    @user = users(:lethieu)
     @book = books(:one)
   end
 
@@ -20,6 +21,11 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
 
   test "should redirect open trading when not logged in" do
     patch trade_open_book_path(@book)
+    assert_redirected_to login_url
+  end
+
+  test "should redirect accept trading when not logged in" do
+    patch trade_accept_book_path(@book)
     assert_redirected_to login_url
   end
 end

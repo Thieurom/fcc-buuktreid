@@ -4,6 +4,7 @@ class BooksInterfaceTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:lethieu)
+    @other_user = users(:other)
   end
 
   test "book interface" do
@@ -22,5 +23,12 @@ class BooksInterfaceTest < ActionDispatch::IntegrationTest
     patch trade_cancel_book_path(@book)
     @book.reload
     assert_equal @book.trading, false
+    # Accept a trading
+    patch trade_open_book_path(@book)
+    log_out
+    log_in_as(@other_user)
+    assert_difference '@other_user.books.count', 1 do
+     patch trade_accept_book_path(@book)
+    end
   end
 end
