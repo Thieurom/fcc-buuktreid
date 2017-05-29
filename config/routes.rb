@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       patch 'trade/open', to: 'books#open_trading'
       patch 'trade/cancel', to: 'books#cancel_trading'
       patch 'trade/accept', to: 'books#accept_trading'
+      delete 'delete', to: 'books#destroy'
     end
   end
 end

@@ -1,8 +1,8 @@
 class BooksController < ApplicationController
 
   before_action :logged_in_user
-  before_action :correct_user, only: [:open_trading, :cancel_trading]
-  before_action :get_book, only: [:open_trading, :cancel_trading, :accept_trading]
+  before_action :correct_user, only: [:open_trading, :cancel_trading, :destroy]
+  before_action :get_book, only: [:open_trading, :cancel_trading, :accept_trading, :destroy]
 
 
   GOOGLE_BOOKS_API_BASE_URL = ENV['GOOGLE_BOOKS_API_BASE_URL']
@@ -42,6 +42,11 @@ class BooksController < ApplicationController
 
   def accept_trading
     @book.update_attributes(user_id: current_user.id, trading: false)
+    responde_to_trading_request
+  end
+
+  def destroy
+    @book.destroy
     responde_to_trading_request
   end
 

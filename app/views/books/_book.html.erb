@@ -12,9 +12,11 @@
         <div class="book__description"><%= book.description %></div>
         <div class="book__action">
           <% if book.trading %>
-            <button class="button button--small button--destroy">cancel</button>
+            <button class="button button--small button--danger">cancel</button>
           <% else %>
             <button class="button button--small button--secondary">trade</button>
+            <div class="separator" style="width:10px;"></div>
+            <button class="button button--small button--danger">delete</button>
           <% end %>
         </div>
       </div>

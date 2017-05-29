@@ -17,7 +17,7 @@
                 <div class="trader">Trading by <span class="trader__name"><%= book.user.username %></span>
                 </div>
                 <% if correct_user?(book.user) %>
-                  <button class="button button--small button--destroy">cancel</button>
+                  <button class="button button--small button--danger">cancel</button>
                 <% else %>
                   <button class="button button--small button--secondary">accept</button>
                 <% end %>

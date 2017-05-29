@@ -30,5 +30,9 @@ class BooksInterfaceTest < ActionDispatch::IntegrationTest
     assert_difference '@other_user.books.count', 1 do
      patch trade_accept_book_path(@book)
     end
+    # Delete book
+    assert_difference '@other_user.books.count', -1 do
+     delete delete_book_path(@book)
+    end
   end
 end

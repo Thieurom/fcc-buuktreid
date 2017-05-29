@@ -1,5 +1,8 @@
 $(document).on('turbolinks:load', function() {
 
+  /*
+   * CREATE NEW BOOK FROM SEARCH RESULTS
+   */
   // remove previous inserted elements' listeners
   $('form.search-form').on('ajax:beforeSend', function(){
     $('.search-book button').off('click');
@@ -36,6 +39,42 @@ $(document).on('turbolinks:load', function() {
         $(this).attr('disabled', true);
         $(this).addClass('button--disabled');
       });
+    });
+  });
+
+
+  /*
+   * MANIPULATE BOOKS
+   */
+  $('.book button').on('click', function () {
+    var book_id = $(this).closest('.book').data('book-id');
+    var url = '/books/' + book_id;
+    var requestType = 'PATCH';
+
+    if ($(this).text() === 'trade') {
+      // for open trading
+      url += '/trade/open';
+    } else if ($(this).text() === 'cancel') {
+      // for cancel trading
+      url += '/trade/cancel';
+    } else if ($(this).text() === 'confirm to delete') {
+      // for cancel trading
+      url += '/delete';
+      requestType = 'DELETE';
+    } else if ($(this).text() === 'delete') {
+      $(this).removeClass('button--danger').addClass('button--destroy');
+      $(this).text('confirm to delete');
+      return;
+    }
+
+    $.ajax({
+      context: this,
+      url: url,
+      method: requestType,
+      dataType: 'script'})
+    .done(function() {
+      // change the status of added book's button
+      $(this).closest('.book').remove();
     });
   });
 });
