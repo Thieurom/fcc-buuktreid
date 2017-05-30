@@ -1,33 +1,42 @@
 <ul class="menu">
   <li class="menu__item">
     <% if active_menu_link == "Collection" %>
+      <i class="fa fa-university"></i>
       <%= link_to 'Collection', @user, class: 'menu__link menu__link--active' %>
     <% else %>
+      <i class="fa fa-university"></i>
       <%= link_to 'Collection', @user, class: 'menu__link' %>
     <% end %>
   </li>
   <li class="menu__item">
     <% if active_menu_link == "Trading" %>
+      <i class="fa fa-upload"></i>
       <%= link_to 'Trading', trading_user_path(@user), class: 'menu__link menu__link--active' %>
     <% else %>
+      <i class="fa fa-upload"></i>
       <%= link_to 'Trading', trading_user_path(@user), class: 'menu__link' %>
     <% end %>
   </li>
   <li class="menu__item">
     <% if active_menu_link == "Edit Profile" %>
+      <i class="fa fa-edit"></i>
       <%= link_to 'Edit Profile', edit_profile_user_path(@user), class: 'menu__link menu__link--active' %>
     <% else %>
+      <i class="fa fa-edit"></i>
       <%= link_to 'Edit Profile', edit_profile_user_path(@user), class: 'menu__link' %>
     <% end %>
   </li>
   <li class="menu__item">
     <% if active_menu_link == "Change Password" %>
+      <i class="fa fa-key"></i>
       <%= link_to 'Change Password', change_password_user_path(@user), class: 'menu__link menu__link--active' %>
     <% else %>
+      <i class="fa fa-key"></i>
       <%= link_to 'Change Password', change_password_user_path(@user), class: 'menu__link' %>
     <% end %>
   </li>
   <li class="menu__item">
+    <i class="fa fa-sign-out"></i>
     <%= link_to 'Logout', logout_path, method: :delete, class: 'menu__link' %>
   </li>
 </ul>

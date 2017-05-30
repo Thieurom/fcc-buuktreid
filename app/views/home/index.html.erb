@@ -4,9 +4,17 @@
     <% if logged_in? %>
       <%= render 'trading_books' %>
     <% else %>
+      <div class="hero">
+        <i class="fa fa-book"></i>
+        <i class="fa fa-exchange"></i>
+        <i class="fa fa-book"></i>
+      </div>
       <div class="tagline">
         <h1 class="h1">Buuktreid</h1>
         <h2 class="h2">A friendly marketplace for book lovers.</h1>
+      </div>
+      <div class="guide">
+        <%= link_to "Get started today", signup_path, class: "button button--primary button--full" %>
       </div>
     <% end %>
   </div>
