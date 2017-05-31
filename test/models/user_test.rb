@@ -91,4 +91,14 @@ class UserTest < ActiveSupport::TestCase
     @user.password = "a" * 5
     assert_not @user.valid?
   end
+
+  test "city should not consist of more than 255 characters" do
+    @user.city = "a" * 256
+    assert_not @user.valid?
+  end
+
+  test "state should not consist of more than 255 characters" do
+    @user.state = "a" * 256
+    assert_not @user.valid?
+  end
 end

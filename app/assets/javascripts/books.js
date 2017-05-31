@@ -57,8 +57,11 @@ $(document).on('turbolinks:load', function() {
     } else if ($(this).text() === 'cancel') {
       // for cancel trading
       url += '/trade/cancel';
+    } else if ($(this).text() === 'accept') {
+      // for accpet trading
+      url += '/trade/accept';
     } else if ($(this).text() === 'confirm to delete') {
-      // for cancel trading
+      // for delete trading
       url += '/delete';
       requestType = 'DELETE';
     } else if ($(this).text() === 'delete') {

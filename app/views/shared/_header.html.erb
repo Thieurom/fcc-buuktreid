@@ -4,7 +4,7 @@
     <nav class="nav">
       <% if logged_in? %>
         <div class="nav__item">
-          <%= link_to 'Account', current_user %>
+          <%= link_to '<i class="fa fa-user"></i> Account'.html_safe, current_user %>
         </div>
       <% else %>
         <div class="nav__item">

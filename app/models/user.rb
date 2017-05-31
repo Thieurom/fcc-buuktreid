@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  validates :city, length: { maximum: 255 }
+  validates :state, length: { maximum: 255 }
 
   # Return the hash digest of the given string
   def User.digest(string)

@@ -18,6 +18,22 @@
     </div>
     <div class="profile-form__group">
       <div class="profile-form__name">
+      <%= f.label :city, class: 'profile-form__label' %>
+      </div>
+      <div class="profile-form__value">
+        <%= f.text_field :city, class: 'profile-form__input' %>
+      </div>
+    </div>
+    <div class="profile-form__group">
+      <div class="profile-form__name">
+      <%= f.label :state, class: 'profile-form__label' %>
+      </div>
+      <div class="profile-form__value">
+        <%= f.text_field :state, class: 'profile-form__input' %>
+      </div>
+    </div>
+    <div class="profile-form__group">
+      <div class="profile-form__name">
       </div>
       <div class="profile-form__value">
         <%= f.submit 'Save changes', class: 'button button--primary' %>
